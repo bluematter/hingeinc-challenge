@@ -1,5 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #030e21;
+	overflow: hidden;
+}
+
+.bottom-buttons {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	right: 0;
+	width: 150px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	background: #fff;
+	border-radius: 100em;
+	padding: 5px 10px;
+	border: 10px solid #413a48;
+}
+
+.eightys-text {
+	color: #fff;
+	font-family: 'Audiowide', cursive;
+	font-size: 60px;
+	position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	height: 280px;
+	margin: auto;
+	text-shadow: 4px 3px 8px rgba(186, 1, 255, 0.8),
+		-2px -5px 4px rgba(186, 1, 255, 0.8);
+}
+
+.eightys-text-loading {
+	top: 180px;
+	font-size: 40px;
+	color: rgba(186, 1, 255, 1);
+	text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.eightys-text-smaller {
+	font-size: 30px;
+	color: #fff;
+	font-family: 'Audiowide', cursive;
+	text-align: center;
+	margin: auto;
+	text-shadow: 4px 3px 8px rgba(186, 1, 255, 0.8),
+		-2px -5px 4px rgba(186, 1, 255, 0.8);
+	margin-bottom: 15px;
+}
+
+.eightys-grid {
+	top: -400px;
+	bottom: -400px;
+	left: -400px;
+	right: -400px;
+	position: absolute;
+	background-color: #030e21;
+	background-image: linear-gradient(#ff0092 3px, transparent 5px),
+		linear-gradient(90deg, #f73df4 1px, transparent 1px);
+	background-size: 2% 2%, 2% 2%;
+	background-position: 0 0, 0 0;
+	-webkit-transform: perspective(300px) rotateX(80deg);
+	transform: perspective(300px) rotateX(80deg);
+
+	animation: throughSpace 2s linear;
+	animation-iteration-count: infinite;
+}
+
+.button {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border: 0 none;
+	cursor: pointer;
+}
+
+.button-increment {
+	background: linear-gradient(to right, #cb3bbf 0%, #bb31cb 100%);
+}
+
+.button-increment-slowly {
+	background: #4b7cdc;
+}
+
+.logs {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 30%;
+	color: #fff;
+	height: 50%;
+	background: linear-gradient(
+		-170deg,
+		rgba(0, 0, 0, 0) 40%,
+		rgba(0, 0, 0, 0.8) 100%
+	);
+	padding: 30px;
+	box-sizing: border-box;
+}
+
+.logs ul {
+	padding: 0;
+	margin: 0;
+}
+
+.logs li {
+	list-style: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 30px;
+	font-weight: bold;
+	text-align: left;
+}
+
+@keyframes throughSpace {
+	0% {
+		transform: perspective(800px) rotateX(80deg) translateY(0%);
+	}
+	100% {
+		transform: perspective(800px) rotateX(80deg) translateY(5.8%);
+	}
 }

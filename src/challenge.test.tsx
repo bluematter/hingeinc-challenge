@@ -26,18 +26,18 @@ test('Challenge 1: dispatching redux actions', () => {
   );
   const button = app.find('#increment-btn');
 
-  expect(app.contains(<p>{1}</p>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{1}</div>)).toBeTruthy();
   button.simulate('click');
-  expect(app.contains(<p>{2}</p>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{2}</div>)).toBeTruthy();
   button.simulate('click');
-  expect(app.contains(<p>{4}</p>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{4}</div>)).toBeTruthy();
   button.simulate('click');
-  expect(app.contains(<p>{8}</p>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{8}</div>)).toBeTruthy();
   button.simulate('click');
-  expect(app.contains(<p>{16}</p>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{16}</div>)).toBeTruthy();
 });
 
-test.skip('Challenge 2: AsyncTracker', () => {
+test('Challenge 2: AsyncTracker', () => {
   /**
    * This test will have you use the AsyncTracker component to watch the progress of an asynchronous action dispatch.
    *
@@ -66,16 +66,20 @@ test.skip('Challenge 2: AsyncTracker', () => {
   );
   const button = app.find('#delay-increment-btn');
 
-  expect(app.contains(<p>{1}</p>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{1}</div>)).toBeTruthy();
   expect(app.contains(<span>Loading...</span>)).toBeFalsy();
   button.simulate('click');
   app.update(); // Ensure the component has re-rendered.
-  expect(app.contains(<p>{1}</p>)).toBeTruthy();
-  expect(app.contains(<span>Loading...</span>)).toBeTruthy();
+  expect(app.contains(<div className="eightys-text">{1}</div>)).toBeTruthy();
+  expect(
+    app.contains(
+      <div className="eightys-text eightys-text-loading">Loading...</div>
+    )
+  ).toBeTruthy();
 
   return Bluebird.delay(2000).then(() => {
     app.update();
-    expect(app.contains(<p>{2}</p>)).toBeTruthy();
+    expect(app.contains(<div className="eightys-text">{2}</div>)).toBeTruthy();
   });
 });
 

@@ -6,6 +6,7 @@ body {
 	font-family: sans-serif;
 	background: #030e21;
 	overflow: hidden;
+	font-size: 13px;
 }
 
 .bottom-buttons {
@@ -26,7 +27,7 @@ body {
 .eightys-text {
 	color: #fff;
 	font-family: 'Audiowide', cursive;
-	font-size: 60px;
+	font-size: 3.75em;
 	position: absolute;
 	top: 100px;
 	left: 0;
@@ -40,13 +41,13 @@ body {
 
 .eightys-text-loading {
 	top: 180px;
-	font-size: 40px;
+	font-size: 2.5em;
 	color: rgba(186, 1, 255, 1);
 	text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
 .eightys-text-smaller {
-	font-size: 30px;
+	font-size: 1.875em;
 	color: #fff;
 	font-family: 'Audiowide', cursive;
 	text-align: center;
@@ -54,6 +55,12 @@ body {
 	text-shadow: 4px 3px 8px rgba(186, 1, 255, 0.8),
 		-2px -5px 4px rgba(186, 1, 255, 0.8);
 	margin-bottom: 15px;
+}
+
+.ui-overflow-wrap {
+	overflow: hidden;
+	height: 100vh;
+	position: relative;
 }
 
 .eightys-grid {
@@ -92,23 +99,45 @@ body {
 
 .logs {
 	position: absolute;
-	bottom: 0;
+	bottom: 170px;
 	left: 0;
-	width: 30%;
+	right: 0;
 	color: #fff;
 	height: 50%;
-	background: linear-gradient(
-		-170deg,
-		rgba(0, 0, 0, 0) 40%,
-		rgba(0, 0, 0, 0.8) 100%
-	);
 	padding: 30px;
 	box-sizing: border-box;
+	overflow: hidden;
+	width: 50%;
+	margin: 0 auto;
+}
+
+@media (min-width: 880px) {
+	body {
+		font-size: 16px;
+	}
+	.logs {
+		right: auto;
+		width: 38%;
+		bottom: 0;
+		background: linear-gradient(
+			-170deg,
+			rgba(0, 0, 0, 0) 40%,
+			rgba(0, 0, 0, 0.8) 100%
+		);
+	}
+}
+
+@media (max-width: 420px) {
+	.logs {
+		width: 100%;
+	}
 }
 
 .logs ul {
 	padding: 0;
 	margin: 0;
+	display: flex;
+	flex-direction: column-reverse;
 }
 
 .logs li {

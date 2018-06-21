@@ -8,7 +8,7 @@ import App from './App';
 
 configure({ adapter: new Adapter() });
 
-test.skip('Challenge 1: dispatching redux actions', () => {
+test('Challenge 1: dispatching redux actions', () => {
   /**
    * The App component is set up to display the current count for the counter reducer.
    *
@@ -19,9 +19,13 @@ test.skip('Challenge 1: dispatching redux actions', () => {
    */
 
   const store = configureStore();
-  const app = mount(<Provider store={store}><App /></Provider>);
+  const app = mount(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
   const button = app.find('#increment-btn');
-  
+
   expect(app.contains(<p>{1}</p>)).toBeTruthy();
   button.simulate('click');
   expect(app.contains(<p>{2}</p>)).toBeTruthy();
@@ -48,27 +52,31 @@ test.skip('Challenge 2: AsyncTracker', () => {
    * Hint: The async ID for the delayIncrement action creator is `delay-increment`.
    *
    * Bonus 1: When the increment is complete, use an AsyncTracker callback to emit a log message with whatever you like.
-   * 
+   *
    * Bonus 2: Find a way to test the logging behavior.
    *
    * Bonus 3: Make the test run faster by using Jest's timer mocks.
    */
 
   const store = configureStore();
-  const app = mount(<Provider store={store}><App /></Provider>);
+  const app = mount(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
   const button = app.find('#delay-increment-btn');
-  
+
   expect(app.contains(<p>{1}</p>)).toBeTruthy();
   expect(app.contains(<span>Loading...</span>)).toBeFalsy();
   button.simulate('click');
-  app.update();   // Ensure the component has re-rendered.
+  app.update(); // Ensure the component has re-rendered.
   expect(app.contains(<p>{1}</p>)).toBeTruthy();
   expect(app.contains(<span>Loading...</span>)).toBeTruthy();
 
   return Bluebird.delay(2000).then(() => {
     app.update();
     expect(app.contains(<p>{2}</p>)).toBeTruthy();
-  });  
+  });
 });
 
 test.skip('Challenge 3: Beautify');
